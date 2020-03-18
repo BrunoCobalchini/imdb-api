@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.brunocobalchini.api</groupId>
+	<artifactId>imdb-api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>API</name>
+	<description>API</description>
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>2.2.3</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+</project>
