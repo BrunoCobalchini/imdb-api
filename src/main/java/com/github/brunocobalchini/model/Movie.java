@@ -32,7 +32,7 @@ public class Movie {
 	private int duration;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "movie") 
-	private List<Participation> cast = new ArrayList<>();
+	private List<Participation> cast = new ArrayList<Participation>();
 	
 	public String getId() {
 		return id;

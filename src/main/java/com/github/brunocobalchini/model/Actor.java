@@ -26,7 +26,7 @@ public class Actor {
 	private	LocalDate birthDate;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
-	private List<Participation> participations = new ArrayList<>();
+	private List<Participation> participations = new ArrayList<Participation>();
 
 	public List<Participation> getParticipations() {
 		return participations;
