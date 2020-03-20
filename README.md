@@ -1,6 +1,6 @@
-#imdb-api
+# imdb-api
 
-###Movie API
+## Movie API
 
 ![alt text](https://i.imgur.com/lSDCC4g.png)	
 	
