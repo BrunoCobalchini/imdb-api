@@ -1,52 +1,39 @@
 package com.github.brunocobalchini.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Participation") //Endpoint: /Actor - GET // Saida: {"id": 0 , "actor": 0, "movie": 0}
+@Table(name = "Participation")
 public class Participation {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // ID auto
-	@Column(name = "partId")
-	private int id;  // EndPoint: /Participation/partId |POST- {"partId": "eih2021"} 
-	//EndPoint: /Participation/partId - GET // Saida: {"partId": 1, "actor": 0, "movie": 0}
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 
-	@ManyToOne
-	@JoinTable(name = "Actor", joinColumns =
-	{ @JoinColumn(name = "castActor")})
-	private int actor;  // EndPoint: /Participation/actor |POST- {"actor": 1} 
-	//EndPoint: /Participation/actor - GET // Saida: {"partId": 2, "actor": 1}
+	@ManyToOne(optional = false)
+	private Actor actor;
 
+	@ManyToOne(optional = false)
+	private Movie movie;
 
-	@ManyToOne
-	@JoinTable(name = "Movie", joinColumns =
-	{ @JoinColumn(name = "castMovie")})
-	private int movie;  // EndPoint: /Participation/movie |POST- {"movie": 2} 
-	//EndPoint: /Participation/movie - GET // Saida: {"partId": 3, "movie": 2}
-
-
-	public int getActor() {
+	public Actor getActor() {
 		return actor;
 	}
 
-	public void setActor(int actor) {
+	public void setActor(Actor actor) {
 		this.actor = actor;
 	}
 
-	public int getMovie() {
+	public Movie getMovie() {
 		return movie;
 	}
 
-	public void setMovie(int movie) {
+	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
 
