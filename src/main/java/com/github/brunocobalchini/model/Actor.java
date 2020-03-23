@@ -23,7 +23,7 @@ public class Actor {
 	private	String name;
 
 	@Column(name =  "birth_date", nullable = false)
-	private	LocalDate birthDate;
+	private	LocalDate birthDate; 
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
 	private List<Participation> participations = new ArrayList<Participation>();
