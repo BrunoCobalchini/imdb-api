@@ -18,50 +18,50 @@ public class Movie {
 	@Id
 	@Column(nullable = false, length = 10)
 	private String id;
-	
+
 	@Column(name =  "name", nullable = false, length = 100)
 	private String name;
-	
+
 	@Column(name =  "release_date", nullable = false)
 	private LocalDate releaseDate;
-	
+
 	@Column(nullable = false)
 	private float rating;
-	
+
 	@Column(name =  "duration")
 	private int duration;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "movie") 
 	private List<Participation> cast = new ArrayList<Participation>();
-	
+
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public LocalDate getReleaseDate() {
 		return releaseDate;
 	}
-	
+
 	public void setReleaseDate(LocalDate releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-	
+
 	public float getRating() {
 		return rating;
 	}
-	
+
 	public void setRating(float rating) {
 		this.rating = rating;
 	}

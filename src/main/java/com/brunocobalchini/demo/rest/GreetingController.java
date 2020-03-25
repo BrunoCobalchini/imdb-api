@@ -1,4 +1,4 @@
-package com.brunocobalchini.restservice;
+package com.brunocobalchini.demo.rest;
 
 import java.util.concurrent.atomic.AtomicLong;
 
