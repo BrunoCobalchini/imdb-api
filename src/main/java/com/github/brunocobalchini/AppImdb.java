@@ -1,13 +1,13 @@
-package com.brunocobalchini.demo;
+package com.github.brunocobalchini;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class AppImdb {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(AppImdb.class, args);
 	}
 
 }
