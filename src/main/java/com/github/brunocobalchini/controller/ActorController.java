@@ -41,7 +41,7 @@ public class ActorController {
 		actor.setName("Joaquin Phoenix");
 		actor.setBirthDate(LocalDate.of(1974, 10, 28));
 		ACTORS.put(actor.getId(), actor);
-		
+
 		actor = new Actor();
 		actor.setId("nm0000375");
 		actor.setName("Robert Downey Jr");
@@ -83,18 +83,18 @@ public class ActorController {
 		actor = ACTORS.put(actor.getId(), actor);
 		return ResponseEntity.status(HttpStatus.CREATED).body(actor);
 	}
-	
+
 	@PutMapping(path = "/{id}")
 	public ResponseEntity<Actor> putActor(@PathVariable String id, @RequestBody Actor actor) {
 		if (!ACTORS.containsKey(id)) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();	
 		}
 		Actor oldActor = ACTORS.get(id);	
-		
+
 		if (!StringUtils.isEmpty(actor.getName())) {
 			oldActor.setName(actor.getName());
 		}
-		
+
 		if (actor.getBirthDate() != null) {
 			oldActor.setBirthDate(actor.getBirthDate());
 		}
