@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "Movie")
 public class Movie {
@@ -31,8 +33,9 @@ public class Movie {
 	@Column(name =  "duration")
 	private int duration;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "movie") 
-	private List<Participation> cast = new ArrayList<Participation>();
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "movie")
+	@JsonBackReference
+	private List<Participation> cast = new ArrayList<>();
 
 	public String getId() {
 		return id;

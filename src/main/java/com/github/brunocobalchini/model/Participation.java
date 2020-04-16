@@ -1,11 +1,15 @@
 package com.github.brunocobalchini.model;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "Participation")
@@ -16,9 +20,13 @@ public class Participation {
 	private int id;
 
 	@ManyToOne(optional = false)
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_participation_actor"))
+	@JsonManagedReference
 	private Actor actor;
 
 	@ManyToOne(optional = false)
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_participation_movie"))
+	@JsonManagedReference
 	private Movie movie;
 
 	public Actor getActor() {
