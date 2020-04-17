@@ -22,7 +22,7 @@ public class DatabaseHelper {
 
 	@Autowired
 	private MovieRepository movieRepo;
-	
+
 	@PostConstruct
 	@Transactional
 	public void populate() {
@@ -31,21 +31,19 @@ public class DatabaseHelper {
 		actor.setName("Joaquin Phoenix");
 		actor.setBirthDate(LocalDate.of(1974, 10, 28));
 		actorRepo.save(actor);
-		
+
 		Movie movie  = new Movie();
 		movie.setId("tt7286456");
 		movie.setName("Joker");
 		movie.setRating(8.5f);
 		movie.setReleaseDate(LocalDate.of(2019, 10, 4));
-		
+
 		Participation participation = new Participation();
 		participation.setActor(actor);
 		participation.setMovie(movie);
-		
+
 		movie.getCast().add(participation);
-		
+
 		movieRepo.save(movie);
 	}
-
-
 }
