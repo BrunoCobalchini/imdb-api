@@ -1,108 +1,104 @@
-# imdb-api
+# Project name: imdb-api
 
-## Movie API
 
 ![alt text](https://i.imgur.com/lSDCC4g.png)	
 	
-# *Endpoints: Actor*
+# *Endpoints: actors*
 ```java
-// Por conter uma lista na entidade, achei que o get a seguir usa ela. Tambem usei essa regra para o POST E PUT pois na entidade Participation tem o optional = false entao eh orbigado a prencher a lista
 
-GET /Actors 
-Resposta: [ { "id": "nm0000129", "name": "Tom Cruise", "birth_date": 01/01/01, ["participations": "id": "nm0000129", "name": "Tom Cruise", "birth_date": 01/01/01]}]
+GET /actors
+	[{ "id": "nm0001191", "name": "Adam Sandler", "birth_date": "1966-09-09", "participations": [ ]}, { "id": "nm0001618", "name": "Joaquin Phoenix", "birth_date": "1974-10-28", "participations": [ ]}, { "id": "nm0000375", "name": "Robert Downey Jr", "birth_date": "1965-04-04", "participations": [ ]}]
 ```
 ```java
-GET /Actors/{id} {"id": "nm0000129"}
-Resposta: {"id": "nm0000129", "name": "Tom Cruise", "birth_date": 01/01/01, ["participations": "id": "nm0000129", "name": "Tom Cruise", "birth_date": 01/01/01]}
-
-```
-```java
-
-POST /Actors/{id}
-Requisicao: POST /Actors/id {"id": "gak1234", "name": "Charlie Sheen", "birth_date": 02/02/02, ["participation": "id": "gak1234", "name": "Charlie Sheen", "birth_date": 02/02/02]}
-GET /Actors/id {"id": "gak1234"}
-Resposta: /Actors/id {"id": "gak1234", "name": "Charlie Sheen", "birth_date": 02/02/02, ["participation": "id": "gak1234", "name": "Charlie Sheen", "birth_date": 02/02/02]}
+GET /actors/{id}
+	{"id": "nm0001191", "name": "Adam Sandler", "birth_date": "1966-09-09", "participations": [ ]}
 
 ```
 ```java
 
-PUT /Actors/id 
-Requisicao: PUT /Actors/id {"id": "gak1234", "name": "Adam Sandler", "birth_date": 12/11/10, ["participation": "id": "gak1234", "name": "Adam Sandler", "birth_date": 12/11/10]}
-GET /Actors/id {"id": "gak1234"}
-Resposta: {"id": "gak1234", "name": "Adam Sandler", "birth_date": 12/11/10, ["participation": "id": "gak1234", "name": "Adam Sandler", "birth_date": 12/11/10]}
+POST /actors/{id}
+	/actors/nm0001618 {"name": "Joaquin Phoenix", "birth_date": "1974-10-28", "participations": [ ]}
+
+	BODY { "id": "nm0001618", "name": "Joaquin Phoenix", "birth_date": "1974-10-28", "participations": [ ]}
 
 ```
 ```java
 
-DELETE /Actors/{id}
-Requisicao: DELETE {"id":"gak1234"}
-Resposta: GET /Actors/id {}
+PUT /actors/id 
+	PUT /actors/nm0001618 {"name": "Chitaozinho"}
+
+	BODY { "id": "nm0001618", "name": "Chitaozinho", "birth_date": "1974-10-28", "participations": [ ]}
 
 ```
-# *Endpoints: Movie*
+```java
+
+DELETE /actors/{id}
+	DELETE /actors/nm0001618
+
+```
+# *Endpoints: movies*
 ```java 
-// Por conter uma lista na entidade, achei que o get a seguir usa ela. Tambem usei essa regra para o POST E PUT, pois na entidade Participation tem o optional = false entao eh orbigado a prencher a lista
+```
+```java
+
+GET /movies
+	[{ "id": "abc2132", "name": "Titanic", "release_date": "1979-11-25", "rating": 4.8, "duration": 120,"participations": [ ]},{"id": "crk1992", "name": "The Hero", "release_date": "1983-05-20", "rating": 2.8, "duration": 118,"participations": [ ]}]
 
 ```
 ```java
 
-GET /Movies
-Resposta:[{ "id": "abc2132", "name": "Titanic", "release_date": 23/12/1997, "rating": 4.8, "duration": 120,["participation": "id": "abc2132", "name": "Titanic", "release_date": 23/12/1997, "rating": 4.8, "duration": 120]}]
+GET /movies/id
+	 /movies/abc2132  { "id": "abc2132", "name": "Titanic", "release_date": "1979-11-25", "rating": 4.8, "duration": 120,"participations": [ ]}
 
 ```
 ```java
 
-GET /Movies/id {"id": "abc2132"}
-Resposta: { "id": "abc2132", "name": "Titanic", "release_date": 23/12/1997, "rating": 4.8, "duration": 120,["participation": "id": "abc2132", "name": "Titanic", "release_date": 23/12/1997, "rating": 4.8, "duration": 120]}
+POST /movies/id
+	POST /movies/crk1992 {"name": "The Godfather", "release_date": "1976-10-09", "rating": 4.9, "duration": 148, "participations": [ ]}
+
+	BODY - {"id": "crk1992", "name": "The Godfather", "release_date": "1976-10-09", "rating": 4.9, "duration": 148,"participations": [ ]}
 
 ```
 ```java
 
-POST /Movies/id
-Requisicao: POST /Movies/id {"id": "crk1992", "name": "The Godfather", "release_date": 12/05/1976, "rating": 4.9, "duration": 148,["participation":"id": "crk1992", "name": "The Godfather", "release_date": 12/05/1976, "rating": 4.9, "duration": 148]}
-GET {"id": "crk1992"}
-Resposta: {"id": "crk1992", "name": "The Godfather", "release_date": 12/05/1976, "rating": 4.9, "duration": 148,["participation":"id": "crk1992", "name": "The Godfather", "release_date": 12/05/1976, "rating": 4.9, "duration": 148]}
+PUT /movies/id 
+	PUT /movies/crk1992 {"name": "The Hero"}
+
+	BODY - {"id": "crk1992", "name": "The Hero", "release_date": "1976-10-09", "rating": 4.9, "duration": 148,"participations": [ ]}
 
 ```
 ```java
 
-PUT /Movies/id 
-Requisicao: PUT /Movies/id {"id": "crk1992", "name": "The Hero", "release_date": 01/09/1999, "rating": 2.8, "duration": 118,["participation":"id": "crk1992", "name": "The Hero", "release_date": 01/09/199, "rating": 2.8, "duration": 118]}
-GET {"id": "crk1992"}
-Resposta:{"id": "crk1992", "name": "The Hero", "release_date": 01/09/1999, "rating": 2.8, "duration": 118,["participation":"id": "crk1992", "name": "The Hero", "release_date": 01/09/199, "rating": 2.8, "duration": 118]}
+DELETE /movies/id
+		/movies/crk1992
+		
+```
 
+# *Endpoints: participations* 
+```java 
+```
+```java
+GET /participations
+	[{"id": 1, "actors": "nm0000129", "movies": "abc2132"}]
+
+GET /participations/id 
+	/participations/1 {"id": 1, "actors": "nm0000129", "movies": "abc2132"}
 ```
 ```java
 
-DELETE /Movies/id
-Requisicao: DELETE /Movies/id/name  {"name": "The Hero"}
-GET {"id": "crk1992"}
-Resposta: {"id": "crk1992", "name": " ", "release_date": 01/09/1999, "rating": 2.8, "duration": 118,["participation":"id": "crk1992", "name": " ", "release_date": 01/09/199, "rating": 2.8, "duration": 118]}
-```
+POST /participations
+	POST /participations {"actors" "eoq1232", "movies": "vca2123"}
 
-# *Endpoints: Participation* 
+	BODY - {"id" 2, "actors" "eoq1232", "movies": "vca2123"}
+```
 ```java
-// Peguei o actor e o movie pelo ID das suas entidades padroes
 
-GET /Participations
-Resposta: [{"id": 1, "actor": "nm0000129", "movie": "abc2132"}]
+PUT /participations/id
+	PUT /participations/2 {"actors": "umdois2345", "movies": "var4997"}
 
-GET /Participations/id {"id": 2}
-Resposta: {"id": 2, "actor": "gak1234", "movie": "crk1992"}
-
-POST /Participations/id
-Requisicao: POST /Participations/id {"actor" "eoq1232", "movie": "vca2123"}
-GET {"actor": "eoq1232"}
-Resposta: {"id" 3, "actor" "eoq1232", "movie": "vca2123"}
-
-PUT /Participations/id
-Requisicao: PUT /Participations/id {"id": 3, "actor": "umdois2345", "movie": "var4997"}
-GET {"id": 3}
-Resposta: {"id": 3, "actor": "umdois2345", "movie": "var4997"}
-
-DELETE /Participations/id
-Requisicao: DELETE {"id": 3}
-GET {"id": 3}
-Resposta:{}
+	BODY - {"id": 2, "actors": "umdois2345", "movies": "var4997"}
 ```
+```java
 
+DELETE /participations/id
+		/participations/2
