@@ -89,8 +89,8 @@ public class ActorController {
 		if (!ACTORS.containsKey(id)) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();	
 		}
-		Actor oldActor = ACTORS.get(id);	
-
+		Actor oldActor = ACTORS.get(id);
+		
 		if (!StringUtils.isEmpty(actor.getName())) {
 			oldActor.setName(actor.getName());
 		}
