@@ -12,9 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "Actor")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Actor {
 
 	@Id
@@ -42,23 +44,23 @@ public class Actor {
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public LocalDate getBirthDate() {
 		return birthDate;
 	}
-	
+
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
