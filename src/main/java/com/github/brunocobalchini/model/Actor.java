@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "Actor")
@@ -30,7 +30,7 @@ public class Actor {
 	private	LocalDate birthDate; 
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
-	@JsonBackReference
+	@JsonManagedReference("actor")
 	private List<Participation> participations = new ArrayList<>();
 
 	public List<Participation> getParticipations() {
