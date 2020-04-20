@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "Participation")
@@ -21,12 +21,12 @@ public class Participation {
 
 	@ManyToOne(optional = false)
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_participation_actor"))
-	@JsonManagedReference
+	@JsonBackReference("actor")
 	private Actor actor;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_participation_movie"))
-	@JsonManagedReference
+	@JsonBackReference("movie")
 	private Movie movie;
 
 	public Actor getActor() {
@@ -37,13 +37,13 @@ public class Participation {
 		this.actor = actor;
 	}
 
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
-	}
+		public Movie getMovie() {
+			return movie;
+		}
+	
+		public void setMovie(Movie movie) {
+			this.movie = movie;
+		}
 
 	public int getId() {
 		return id;
