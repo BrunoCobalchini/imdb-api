@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+import javax.ws.rs.Produces;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,7 @@ public class MovieController {
 		movie.setName("Joker");
 		movie.setRating(8.5f);
 		movie.setReleaseDate(LocalDate.of(2019, 10, 4));
+		movieRepo.save(movie);
 
 		movie = new Movie();
 		movie.setId("mo132434");
@@ -77,6 +79,7 @@ public class MovieController {
 
 	@PostMapping(path = "/{id}")
 	public ResponseEntity<Movie> postMovie(@PathVariable String id, @RequestBody Movie movie) {
+		
 		if (movieRepo.existsById(id)) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();	
 		}
