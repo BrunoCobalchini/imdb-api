@@ -15,8 +15,8 @@ public class ActorTest {
 		assertNull(actor.getId());
 		assertNull(actor.getName());
 		assertNull(actor.getBirthDate());
-		assertNotNull(actor.getParticipations());
-		assertTrue(actor.getParticipations().isEmpty());
+//		assertNotNull(actor.getParticipations());
+//		assertTrue(actor.getParticipations().isEmpty());
 	}
 
 	@Test
@@ -28,7 +28,7 @@ public class ActorTest {
 		assertNotNull(actor.getName());
 		actor.setBirthDate(LocalDate.of(1, 1, 1));
 		assertNotNull(actor.getBirthDate());
-		actor.setParticipations(null);
-		assertNull(actor.getParticipations());
+//		actor.setParticipations(null);
+//		assertNull(actor.getParticipations());
 	}	
 }

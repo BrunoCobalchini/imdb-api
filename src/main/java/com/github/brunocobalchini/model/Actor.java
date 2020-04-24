@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -29,17 +30,17 @@ public class Actor {
 	@Column(name =  "birth_date", nullable = false)
 	private	LocalDate birthDate; 
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
-	@JsonManagedReference("actor")
-	private List<Participation> participations = new ArrayList<>();
+//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "actor")
+//	@JsonManagedReference("actor")
+//	private List<Participation> participations = new ArrayList<>();
 
-	public List<Participation> getParticipations() {
-		return participations;
-	}
-
-	public void setParticipations(List<Participation> participations) {
-		this.participations = participations;
-	}
+//	public List<Participation> getParticipations() {
+//		return participations;
+//	}
+//
+//	public void setParticipations(List<Participation> participations) {
+//		this.participations = participations;
+//	}
 
 	public String getId() {
 		return id;
