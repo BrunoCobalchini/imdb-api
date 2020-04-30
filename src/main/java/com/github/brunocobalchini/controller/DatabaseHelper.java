@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.github.brunocobalchini.model.Actor;
 import com.github.brunocobalchini.model.Movie;
-import com.github.brunocobalchini.model.Participation;
 import com.github.brunocobalchini.repository.ActorRepository;
 import com.github.brunocobalchini.repository.MovieRepository;
 
@@ -38,11 +37,11 @@ public class DatabaseHelper {
 		movie.setRating(8.5f);
 		movie.setReleaseDate(LocalDate.of(2019, 10, 4));
 
-		Participation participation = new Participation();
-		participation.setActor(actor);
-		participation.setMovie(movie);
-
-		movie.getCast().add(participation);
+//		Participation participation = new Participation();
+//		participation.setActor(actor);
+//		participation.setMovie(movie);
+//
+//		movie.getCast().add(participation);
 
 		movieRepo.save(movie);
 	}
