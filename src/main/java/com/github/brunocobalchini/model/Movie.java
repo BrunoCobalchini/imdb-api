@@ -35,9 +35,9 @@ public class Movie {
 	@Column(name =  "duration")
 	private int duration;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "movie")
-	@JsonManagedReference("movie")
-	private List<Participation> cast = new ArrayList<>();
+//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "movie")
+//	@JsonManagedReference("movie")
+//	private List<Participation> cast = new ArrayList<>();
 
 	public String getId() {
 		return id;
@@ -79,11 +79,11 @@ public class Movie {
 		this.duration = duration;
 	}
 
-	public List<Participation> getCast() {
-		return cast;
-	}
-	
-	public void setCast(List<Participation> cast) {
-		this.cast = cast;
-	}
+//	public List<Participation> getCast() {
+//		return cast;
+//	}
+//	
+//	public void setCast(List<Participation> cast) {
+//		this.cast = cast;
+//	}
 }	
